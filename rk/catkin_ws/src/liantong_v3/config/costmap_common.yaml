@@ -1,0 +1,18 @@
+robot_base_frame: base_link
+transform_tolerance: 0.25
+footprint: [[0.175, 0.2], [0.175, -0.2], [-0.175, -0.2], [-0.175, 0.2]]
+footprint_padding: 0.03
+obstacle_layer:
+  observation_sources: lidar
+  obstacle_range: 2.5
+  raytrace_range: 3.0
+  lidar:
+    topic: /scan
+    data_type: LaserScan
+    marking: true
+    clearing: true
+    inf_is_valid: false
+    expected_update_rate: 0.2
+inflation_layer:
+  inflation_radius: 0.35
+  cost_scaling_factor: 3.0

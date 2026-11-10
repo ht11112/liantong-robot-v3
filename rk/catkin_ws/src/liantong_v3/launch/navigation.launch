@@ -1,0 +1,21 @@
+<launch>
+  <arg name="port"/>
+  <arg name="map_yaml"/>
+  <arg name="enable_motion" default="false"/>
+  <arg name="start_rviz" default="false"/>
+  <arg name="cmd_timeout_s" default="0.3"/>
+  <arg name="scan_topic" default="/lidar1/laser_fan"/>
+  <arg name="laser_x" default="0.13"/>
+  <arg name="laser_y" default="0.0"/>
+  <arg name="laser_z" default="0.20"/>
+  <arg name="laser_yaw" default="0.0"/>
+  <arg name="min_usable_range" default="1.0"/>
+
+  <include file="$(find liantong_v3)/launch/localization.launch" pass_all_args="true"/>
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <rosparam command="load" file="$(find liantong_v3)/config/move_base.yaml"/>
+    <rosparam command="load" file="$(find liantong_v3)/config/costmap_common.yaml" ns="global_costmap"/>
+    <rosparam command="load" file="$(find liantong_v3)/config/costmap_common.yaml" ns="local_costmap"/>
+    <remap from="cmd_vel" to="/cmd_vel"/>
+  </node>
+</launch>

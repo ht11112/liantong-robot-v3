@@ -1,0 +1,43 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ''
+  Displays:
+    - Alpha: 0.7
+      Class: rviz/Map
+      Enabled: true
+      Name: Saved map
+      Topic: /map
+      Value: true
+    - Class: rviz/LaserScan
+      Enabled: true
+      Name: Front scan
+      Size (m): 0.025
+      Topic: /scan
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Name: TF
+      Value: true
+    - Class: rviz/PoseWithCovariance
+      Enabled: true
+      Name: AMCL pose
+      Topic: /amcl_pose
+      Value: true
+  Global Options:
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+  Views:
+    Current:
+      Class: rviz/TopDownOrtho
+      Name: Current View
+      Scale: 100
